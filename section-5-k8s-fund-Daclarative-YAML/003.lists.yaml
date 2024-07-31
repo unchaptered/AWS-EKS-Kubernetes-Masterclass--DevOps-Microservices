@@ -1,0 +1,15 @@
+person:
+  name: unchaptered
+  age: 29
+  country: Korea, republic of
+  hobbies:
+    - Cooking
+    - Cycling
+  hobbies_2: [Cooking, Cycling]
+
+  friends:
+    - name: kevin
+      age: 22
+    
+    - name: mevin
+      age: 34

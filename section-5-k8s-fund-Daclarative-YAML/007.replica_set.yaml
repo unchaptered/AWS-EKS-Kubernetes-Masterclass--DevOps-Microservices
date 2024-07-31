@@ -1,0 +1,31 @@
+# https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#replicaset-v1-apps
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myapp-rs
+
+spec:
+  replicas: 3
+  selector: 
+    metchLabels:
+    app: kevin_app2 # ⛳️
+
+  template:
+    # 005.pod.yaml에 있는 값들
+    metadata:
+      name: kevin_app2 # ⛳️
+      namespace: myapp-ns
+      labels:
+        key: value
+
+    spec:
+      containers: # List
+        - name: myapp_1
+          images: stacksimplify/kubenginx:1.0.0
+          ports:
+            - containerPort: 80
+
+        - name: myapp_2
+          images: stacksimplify/kubenginx:1.0.0
+          ports:
+            - containerPort: 81

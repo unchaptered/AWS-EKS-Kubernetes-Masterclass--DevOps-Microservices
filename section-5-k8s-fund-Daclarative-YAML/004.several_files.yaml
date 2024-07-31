@@ -1,0 +1,41 @@
+person:
+  name: unchaptered
+  age: 29
+  country: Korea, republic of
+  hobbies:
+    - Cooking
+    - Cycling
+  hobbies_2: [Cooking, Cycling]
+
+  friends:
+    - name: kevin
+      age: 22
+    
+    - name: mevin
+      age: 34
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+
+spec:
+  containers:
+    - name: myapp_1
+      image: stacksimplify/kubenginx:1.0.0
+      ports:
+        - containerPort: 80
+          protocol: "TCP"
+        - containerPort: 81
+          protocol: "TCP"
+
+    - name: myapp_2
+      image: stacksimplify/kubenginx:1.0.0
+      ports:
+        - containerPort: 80
+          protocol: "TCP"
+        - containerPort: 81
+          protocol: "TCP"

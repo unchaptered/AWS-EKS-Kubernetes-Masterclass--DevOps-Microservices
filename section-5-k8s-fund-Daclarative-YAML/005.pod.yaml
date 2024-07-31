@@ -1,0 +1,20 @@
+# https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#-strong-api-overview-strong-
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp
+  namespace: myapp-ns
+  labels:
+    key: value
+
+spec:
+  containers: # List
+    - name: myapp_1
+      images: stacksimplify/kubenginx:1.0.0
+      ports:
+        - containerPort: 80
+
+    - name: myapp_2
+      images: stacksimplify/kubenginx:1.0.0
+      ports:
+        - containerPort: 81

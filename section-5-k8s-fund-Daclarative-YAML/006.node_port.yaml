@@ -1,0 +1,34 @@
+# https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#-strong-api-overview-strong-
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp
+  namespace: myapp-ns
+  labels:
+    app: kevin-app
+
+spec:
+  containers: # List
+    - name: myapp_1
+      images: stacksimplify/kubenginx:1.0.0
+      ports:
+        - containerPort: 80
+---
+# https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#service-v1-core
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-pod-nodeport-service
+  labels:
+    app: myapp
+
+spec:
+  type: NodePort
+  selector:
+    app: kevin-app
+  ports:
+    - name: http
+      port: 80        # Service Port
+      targetPort: 80  # Target(pod, container) Port
+      nodePort: 31231 # NodePort
+  
